@@ -31,6 +31,7 @@
             echo "Jumlah Jam Kerja: $jam_kerja jam<br>";
             echo "Tarif Per Jam: Rp $tarif_per_jam<br>";
             echo "Jam Lembur: $jam_lembur jam<br>";
+            echo "Tarif Per Jam Lembur: Rp ".$tarif_per_jam * 1.5 ."<br>";
             echo "Total Gaji: Rp $gaji";
         }
     ?>
