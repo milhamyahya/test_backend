@@ -18,19 +18,21 @@
     </form>
 
     <?php
-    if (isset($_POST['submit'])) {
-        $jam_kerja = $_POST['jam_kerja'];
-        $tarif_per_jam = $_POST['tarif_per_jam'];
-
-        $gaji = $jam_kerja > 40 
-            ? (40 * $tarif_per_jam) + (($jam_kerja - 40) * $tarif_per_jam * 1.5) 
-            : $jam_kerja * $tarif_per_jam;
-
-        echo "<h3>Hasil Perhitungan:</h3>";
-        echo "Jumlah Jam Kerja: $jam_kerja jam <br>";
-        echo "Tarif Per Jam: Rp $tarif_per_jam <br>";
-        echo "Total Gaji: Rp $gaji";
-    }
+        if (isset($_POST['submit'])) {
+            $jam_kerja = $_POST['jam_kerja'];
+            $tarif_per_jam = $_POST['tarif_per_jam'];
+        
+            $jam_lembur = $jam_kerja > 40 ? $jam_kerja - 40 : 0;
+            $gaji = $jam_kerja > 40 
+                ? (40 * $tarif_per_jam) + ($jam_lembur * $tarif_per_jam * 1.5) 
+                : $jam_kerja * $tarif_per_jam;
+        
+            echo "<h3>Hasil Perhitungan:</h3>";
+            echo "Jumlah Jam Kerja: $jam_kerja jam<br>";
+            echo "Tarif Per Jam: Rp $tarif_per_jam<br>";
+            echo "Jam Lembur: $jam_lembur jam<br>";
+            echo "Total Gaji: Rp $gaji";
+        }
     ?>
 </body>
 </html>
